@@ -1,0 +1,116 @@
+nav {
+    min-height: 10vh;
+    font-family: 'Varela Round', sans-serif;
+    background-color: #fff;
+    /*#5d4954;*/
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    color: #5d4954;
+}
+
+.logo {
+    color: #5d4954;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 1rem;
+}
+
+.nav-links {
+    background-color: #fff;
+    position: absolute;
+    right: 0;
+    height: 90vh;
+    top: 10vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 30%;
+    transform: translateX(110%);
+    transition: transform .5s ease-in;
+}
+
+.nav-links li {
+    opacity: 0;
+}
+
+.nav-active {
+    transform: translateX(0%);
+}
+
+.link {
+    color: #5d4954;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.nav-links li {
+    list-style-type: none;
+}
+
+.burger>div {
+    background-color: #5d4954;
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+    transition: transform .5s ease;
+}
+
+.toggle .line2 {
+    opacity: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+    transition: transform .5s ease;
+}
+
+@media(min-width: 768px) {
+    .logo {
+        font-size: 1.4rem;
+    }
+    .nav-links {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 45%;
+        position: relative;
+        height: 10vh;
+        top: 0;
+        transform: none;
+    }
+    .burger {
+        display: none;
+    }
+    .nav-links li {
+        opacity: 1;
+    }
+}
+
+@media (min-width: 1440px) {
+    .nav-links {
+        width: 30%;
+    }
+}
