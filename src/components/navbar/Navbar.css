@@ -30,12 +30,20 @@ nav {
     justify-content: space-around;
     align-items: center;
     width: 30%;
-    transform: translateX(110%);
+    transform: translateX(100%);
     transition: transform .5s ease-in;
+    z-index: 10;
+}
+
+.links {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .nav-links li {
-    opacity: 0;
+    opacity: 1;
 }
 
 .nav-active {
@@ -88,18 +96,32 @@ nav {
 
 @media(min-width: 768px) {
     .logo {
+        margin-left: 1rem;
         font-size: 1.4rem;
+        flex: 3;
     }
     .nav-links {
+        flex: 9;
         display: flex;
         flex-flow: row;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
-        width: 45%;
         position: relative;
         height: 10vh;
         top: 0;
         transform: none;
+    }
+    .links {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .links-center {
+        width: 60%;
+    }
+    .links-right {
+        width: 25%;
     }
     .burger {
         display: none;

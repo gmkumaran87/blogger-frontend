@@ -24,33 +24,46 @@ const Navbar = () => {
   };
   return (
     <nav>
-      <div className="logo">Simple Blog</div>
-      <ul className="nav-links">
-        <li>
-          <NavLink className="link" to="/home">
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink className="link" to="/about">
-            About
-          </NavLink>
-        </li>
-        <li>
-          <NavLink className="link" to="/login">
-            Login
-          </NavLink>
-        </li>
-        <li>
-          <NavLink className="link" to="/register">
-            Register
-          </NavLink>
-        </li>
-      </ul>
+      <div className="logo"> Simple Blog </div>
+      <div className="nav-links">
+        <ul className="links links-center">
+          <li>
+            <NavLink className="link" to="/home">
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="link" to="/about">
+              About
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="link" to="/login">
+              Contact
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="link" to="/register">
+              Write
+            </NavLink>
+          </li>
+        </ul>
+        <ul className="links links-right">
+          <li>
+            <NavLink className="link" to="/login">
+              Login
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="link" to="/register">
+              Register
+            </NavLink>
+          </li>
+        </ul>
+      </div>
       <div className="burger" onClick={toggleNavbar}>
-        <div className="line1"></div>
-        <div className="line2"></div>
-        <div className="line3"></div>
+        <div className="line1"> </div> <div className="line2"> </div>
+        <div className="line3"> </div>
       </div>
     </nav>
   );

@@ -1,7 +1,15 @@
 .home {
+    margin-top: 2rem;
+    padding: 0 1rem;
     display: flex;
     flex-flow: column;
     justify-content: center;
-    /* width: 100%; */
-    /* margin-top: 1rem; */
+    max-width: 1044px;
+}
+
+@media(min-width: 768px) {
+    .home {
+        display: flex;
+        flex-flow: row nowrap;
+    }
 }
