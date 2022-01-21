@@ -1,8 +1,7 @@
 nav {
-    min-height: 10vh;
+    min-height: 12vh;
     font-family: 'Varela Round', sans-serif;
     background-color: #fff;
-    /*#5d4954;*/
     display: flex;
     flex-flow: row;
     justify-content: space-around;
@@ -97,7 +96,7 @@ nav {
 @media(min-width: 768px) {
     .logo {
         margin-left: 1rem;
-        font-size: 1.4rem;
+        font-size: 1rem;
         flex: 3;
     }
     .nav-links {
@@ -118,10 +117,10 @@ nav {
         align-items: center;
     }
     .links-center {
-        width: 60%;
+        width: 55%;
     }
     .links-right {
-        width: 25%;
+        width: 35%;
     }
     .burger {
         display: none;
@@ -129,10 +128,21 @@ nav {
     .nav-links li {
         opacity: 1;
     }
+    .link {
+        font-size: .85rem;
+    }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1024px) {
+    .logo {
+        margin-left: 1rem;
+        font-size: 1.4rem;
+        flex: 3;
+    }
     .nav-links {
         width: 30%;
+    }
+    .link {
+        font-size: 1rem;
     }
 }
