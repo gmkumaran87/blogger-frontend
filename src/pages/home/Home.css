@@ -13,3 +13,13 @@
         flex-flow: row nowrap;
     }
 }
+
+@media(min-width: 1440px) {
+    .home {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-self: start;
+        margin: 2rem auto;
+    }
+}

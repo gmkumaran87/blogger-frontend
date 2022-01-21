@@ -1,0 +1,48 @@
+.register {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("https://images.pexels.com/photos/317355/pexels-photo-317355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-size: cover;
+    height: calc(100vh - 45px);
+    font-family: 'Varela Round', sans-serif;
+    /* margin-top: 1rem; */
+}
+
+.form-title {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    color: #5d4954;
+}
+
+.register-form {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.form-control {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.form-control input {
+    width: 250px;
+    padding: 5px;
+    border-radius: 4px;
+    margin-top: .25rem;
+    border: none;
+}
+
+.form-control label {
+    text-transform: capitalize;
+    letter-spacing: 3px;
+    font-size: 1.1rem;
+}

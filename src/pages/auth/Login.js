@@ -28,25 +28,31 @@ const Login = () => {
   };
   return (
     <div className="login">
-      <h2 className="loginTitle">Please Login</h2>
+      <div className="form-msg"></div>
+      <h2 className="loginTitle"> Please Login </h2>
       <form className="loginForm" onSubmit={handleSubmit}>
-        <label htmlFor="">Email</label>
-        <input
-          required
-          type="text"
-          name="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          required
-          type="password"
-          name="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button className="btn">Submit</button>
+        <div className="form-control">
+          <label htmlFor=""> Email </label>
+          <input
+            required
+            type="text"
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="form-control">
+          <label htmlFor="password"> Password </label>
+          <input
+            required
+            type="password"
+            name="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <button className="btn"> Submit </button>
+        <span className="forgot-password"> Forgot Password ? </span>
       </form>
     </div>
   );

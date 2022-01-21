@@ -1,5 +1,5 @@
 .login {
-    height: calc(100vh - 50px);
+    height: calc(100vh - 45px);
     display: flex;
     flex-flow: column;
     justify-content: center;
@@ -7,6 +7,21 @@
     background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url("https://images.pexels.com/photos/768473/pexels-photo-768473.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
     background-size: cover;
     font-family: 'Varela Round', san-serif;
+    color: #5d4954;
+}
+
+.form-msg {
+    color: coral;
+    letter-spacing: 2px;
+    font-size: 1.2rem;
+}
+
+.loginTitle {
+    color: #5d4954;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    font-weight: 400;
 }
 
 .loginForm {
@@ -18,8 +33,9 @@
 }
 
 .loginForm>label {
-    margin-bottom: 6px;
-    text-align: left;
+    text-transform: capitalize;
+    letter-spacing: 3px;
+    font-size: 1.1rem;
 }
 
 .loginForm>input {
@@ -27,18 +43,27 @@
     background-color: white;
     border: none;
     border-radius: 10px;
-    width: 225px;
+    width: 250px;
     margin-bottom: 1.3rem;
 }
 
 .btn {
-    margin-top: 0;
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    width: 250px;
     border: none;
-    padding: .41rem 1rem;
+    padding: .45rem 1rem;
     border-radius: 3px;
     color: #fff;
     cursor: pointer;
     background-color: teal;
     font-family: 'Varela Round', sans-serif;
     font-weight: 200;
+}
+
+.forgot-password {
+    color: blue;
+    font-size: .851rem;
+    margin-top: .71rem;
+    font-weight: 400;
 }
