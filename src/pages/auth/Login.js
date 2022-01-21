@@ -1,68 +1,53 @@
-import React from "react";
-import { GoogleLogin } from "react-google-login";
-import FacebookLogin from "react-facebook-login";
-import { TiSocialFacebookCircular } from "react-icons/ti";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { authActions } from "../../store/auth-slice";
+import { useNavigate } from "react-router-dom";
+
 import "./Login.css";
 
 const Login = () => {
-  //   dotenv.config();
-  console.log(process.env.GOOGLE_API_ID);
-  const responseGoogle = (response) => {
-    console.log(response);
-  };
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const responseFacebook = (response) => {
-    console.log(response);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { isLoggedIn } = useSelector((state) => state.auth);
+  // const { message, status } = useSelector((state) => state.ui);
+
+  console.log("Iniital value", isLoggedIn);
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate("/users");
+    }
+  }, [isLoggedIn, navigate]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    dispatch(authActions.login({ isLoggedIn: true, isNavBar: false }));
   };
   return (
-    <div className="login-page">
-      <h2 className="login-title">Welcome Back..!</h2>
-      <GoogleLogin
-        // clientId={process.env.GOOGLE_API_ID}
-        clientId="516172148596-r6p22grr9q14rgaohv2f2fj4un22f0f3.apps.googleusercontent.com"
-        render={(renderProps) => (
-          <button
-            onClick={renderProps.onClick}
-            disabled={renderProps.disabled}
-            className="btn"
-          >
-            <svg className="google-font">
-              <g fill="none">
-                <path
-                  d="M20.66 12.7c0-.61-.05-1.19-.15-1.74H12.5v3.28h4.58a3.91 3.91 0 0 1-1.7 2.57v2.13h2.74a8.27 8.27 0 0 0 2.54-6.24z"
-                  fill="#4285F4"
-                ></path>
-                <path
-                  d="M12.5 21a8.1 8.1 0 0 0 5.63-2.06l-2.75-2.13a5.1 5.1 0 0 1-2.88.8 5.06 5.06 0 0 1-4.76-3.5H4.9v2.2A8.5 8.5 0 0 0 12.5 21z"
-                  fill="#34A853"
-                ></path>
-                <path
-                  d="M7.74 14.12a5.11 5.11 0 0 1 0-3.23v-2.2H4.9A8.49 8.49 0 0 0 4 12.5c0 1.37.33 2.67.9 3.82l2.84-2.2z"
-                  fill="#FBBC05"
-                ></path>
-                <path
-                  d="M12.5 7.38a4.6 4.6 0 0 1 3.25 1.27l2.44-2.44A8.17 8.17 0 0 0 12.5 4a8.5 8.5 0 0 0-7.6 4.68l2.84 2.2a5.06 5.06 0 0 1 4.76-3.5z"
-                  fill="#EA4335"
-                ></path>
-              </g>
-            </svg>
-            Login with Google
-          </button>
-        )}
-        onSuccess={responseGoogle}
-        onFailure={responseGoogle}
-        isSignedIn={true}
-        cookiePolicy={"single_host_origin"}
-      />
-      <FacebookLogin
-        appId="674562153958011"
-        autoLoad={true}
-        fields="name,email,picture"
-        onClick={responseFacebook}
-        callback={responseFacebook}
-        cssClass="btn fb-btn"
-        icon={<TiSocialFacebookCircular />}
-      />
+    <div className="login">
+      <h2 className="loginTitle">Please Login</h2>
+      <form className="loginForm" onSubmit={handleSubmit}>
+        <label htmlFor="">Email</label>
+        <input
+          required
+          type="text"
+          name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <label htmlFor="password">Password</label>
+        <input
+          required
+          type="password"
+          name="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button className="btn">Submit</button>
+      </form>
     </div>
   );
 };
