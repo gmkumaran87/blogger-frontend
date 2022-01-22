@@ -13,17 +13,6 @@ body {
     max-width: 100%;
 }
 
-
-/*
-#root {
-    width: 100%;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}*/
-
 h1 {
     color: #426696;
     font-weight: 600;

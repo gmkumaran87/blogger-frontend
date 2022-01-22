@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Register.css";
+import "../Form.css";
 
 const Register = () => {
   const initialState = {
@@ -14,11 +14,12 @@ const Register = () => {
     e.preventDefault();
   };
   return (
-    <div className="register">
-      <h2 className="form-title">Regiter Yourself</h2>
-      <form className="register-form" onSubmit={handleRegister}>
+    <div className="form-center register">
+      <div className="form-msg"></div>
+      <h2 className="form-title"> Regiter Yourself </h2>{" "}
+      <form className=" form register-form" onSubmit={handleRegister}>
         <div className="form-control">
-          <label htmlFor="username">Username</label>
+          <label htmlFor="username"> Username </label>{" "}
           <input
             type="text"
             name="username"
@@ -27,10 +28,10 @@ const Register = () => {
             onChange={(e) =>
               setState((pre) => ({ ...pre, username: e.target.value }))
             }
-          />
-        </div>
+          />{" "}
+        </div>{" "}
         <div className="form-control">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email"> Email </label>{" "}
           <input
             type="text"
             name="email"
@@ -39,10 +40,10 @@ const Register = () => {
             onChange={(e) =>
               setState((pre) => ({ ...pre, email: e.target.value }))
             }
-          />
-        </div>
+          />{" "}
+        </div>{" "}
         <div className="form-control">
-          <label htmlFor="password">password</label>
+          <label htmlFor="password"> password </label>{" "}
           <input
             type="text"
             name="password"
@@ -51,10 +52,10 @@ const Register = () => {
             onChange={(e) =>
               setState((pre) => ({ ...pre, password: e.target.value }))
             }
-          />
-        </div>
-        <button className="btn register-btn">Register</button>
-      </form>
+          />{" "}
+        </div>{" "}
+        <button className="btn register-btn"> Register </button>{" "}
+      </form>{" "}
     </div>
   );
 };

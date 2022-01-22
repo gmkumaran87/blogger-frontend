@@ -29,7 +29,7 @@ nav {
     justify-content: space-around;
     align-items: center;
     width: 30%;
-    transform: translateX(100%);
+    transform: translateY(-110%);
     transition: transform .5s ease-in;
     z-index: 10;
 }
@@ -71,11 +71,11 @@ nav {
 @keyframes navLinkFade {
     from {
         opacity: 0;
-        transform: translateX(50px);
+        transform: translateY(50px);
     }
     to {
         opacity: 1;
-        transform: translateX(0);
+        transform: translateY(0);
     }
 }
 
@@ -103,7 +103,7 @@ nav {
         flex: 9;
         display: flex;
         flex-flow: row;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
         position: relative;
         height: 10vh;
@@ -120,7 +120,7 @@ nav {
         width: 55%;
     }
     .links-right {
-        width: 35%;
+        width: 30%;
     }
     .burger {
         display: none;
@@ -139,10 +139,22 @@ nav {
         font-size: 1.4rem;
         flex: 3;
     }
-    .nav-links {
-        width: 30%;
+    .links-center {
+        width: 50%;
+    }
+    .links-right {
+        width: 25%;
     }
     .link {
         font-size: 1rem;
+    }
+}
+
+@media (min-width: 1440px) {
+    .links-center {
+        width: 40%;
+    }
+    .links-right {
+        width: 20%;
     }
 }
