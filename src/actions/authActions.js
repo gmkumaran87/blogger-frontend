@@ -5,6 +5,7 @@ import {
     forgotPassword,
     register,
     login,
+    logout,
     emailLink,
     passwordReset,
     verifyUser,
@@ -54,6 +55,25 @@ const loginUser = (obj) => {
             }
         } catch (error) {
             console.log(error.response);
+            dispatch(
+                uiActions.showNotification({
+                    status: "error",
+                    message: error.response.data.msg,
+                })
+            );
+        }
+    };
+};
+
+const logoutUser = () => {
+    return async(dispatch) => {
+        try {
+            const result = await logout();
+            console.log(result);
+            if (result.status === 200) {
+                dispatch(authActions.logout());
+            }
+        } catch (error) {
             dispatch(
                 uiActions.showNotification({
                     status: "error",
@@ -167,6 +187,7 @@ const accountActivation = (confirmationCode) => {
 export {
     registerUser,
     loginUser,
+    logoutUser,
     forgotPasswordLink,
     emailValidation,
     updatePassword,

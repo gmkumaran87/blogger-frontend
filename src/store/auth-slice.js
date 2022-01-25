@@ -14,6 +14,7 @@ const authSlice = createSlice({
             //state.user = action.payload.user;
         },
         logout(state, action) {
+            console.log("Before updating logout");
             state.isLoggedIn = false;
             state.isNavBar = true;
         },

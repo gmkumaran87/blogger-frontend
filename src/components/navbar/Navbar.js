@@ -1,14 +1,31 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { NavLink, useNavigate } from "react-router-dom";
+import { logoutUser } from "../../actions/authActions";
+
 import "./Navbar.css";
 const Navbar = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { isLoggedIn } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate("/login");
+    }
+  }, [isLoggedIn, navigate]);
+
+  console.log(isLoggedIn);
+  const handleLogout = async (e) => {
+    dispatch(logoutUser());
+  };
+
   const toggleNavbar = (e) => {
     const burger = document.querySelector(".burger");
     const navLink = document.querySelector(".nav-links");
-    const link = document.querySelectorAll(".nav-links li");
+    const link = document.querySelectorAll(".links li");
     navLink.classList.toggle("nav-active");
 
-    console.log(link);
     link.forEach((e, index) => {
       if (e.style.animation) {
         e.style.animation = "";
@@ -24,11 +41,15 @@ const Navbar = () => {
   };
   return (
     <nav>
-      <div className="logo"> Simple Blog </div>
+      <div className="logo">
+        <NavLink className="link" to="/">
+          Simple Blog
+        </NavLink>
+      </div>
       <div className="nav-links">
         <ul className="links links-center">
           <li>
-            <NavLink className="link" to="/home">
+            <NavLink className="link" to="/">
               Home
             </NavLink>
           </li>
@@ -43,22 +64,36 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink className="link" to="/register">
+            <NavLink className="link" to="/write">
               Write
             </NavLink>
           </li>
         </ul>
         <ul className="links links-right">
-          <li>
-            <NavLink className="link" to="/login">
-              Login
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className="link" to="/register">
-              Register
-            </NavLink>
-          </li>
+          {isLoggedIn && (
+            <>
+              <li>
+                <a className="link" href="#" onClick={handleLogout}>
+                  Logout
+                </a>
+              </li>
+            </>
+          )}
+          {!isLoggedIn && (
+            <>
+              {" "}
+              <li>
+                <NavLink className="link" to="/login">
+                  Login
+                </NavLink>
+              </li>
+              <li>
+                <NavLink className="link" to="/register">
+                  Register
+                </NavLink>
+              </li>
+            </>
+          )}
         </ul>
       </div>
       <div className="burger" onClick={toggleNavbar}>

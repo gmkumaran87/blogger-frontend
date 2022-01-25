@@ -55,9 +55,8 @@
 
 .form-title {
     font-family: 'Varela Round', sans-serif;
-    font-size: 1rem;
+    font-size: 1.5rem;
     letter-spacing: 2px;
-    /* margin-bottom: 1rem; */
     color: #5d4954;
 }
 
@@ -84,9 +83,22 @@
 }
 
 .form-msg {
-    color: coral;
     letter-spacing: 2px;
     font-size: 1.2rem;
+    padding: 0.375rem 0.75rem;
+    margin-bottom: 1rem;
+    border-color: transparent;
+    border-radius: var(--borderRadius);
+}
+
+.alert-success {
+    color: var(--green-dark);
+    background: var(--green-light);
+}
+
+.alert-danger {
+    color: var(--red-dark);
+    background: var(--red-light);
 }
 
 .btn {
@@ -104,7 +116,7 @@
 }
 
 .password-link {
-    font-size: .851rem;
+    font-size: .9rem;
     margin-top: .71rem;
     font-weight: 400;
 }
@@ -161,6 +173,9 @@
         background-color: teal;
         font-family: 'Varela Round', sans-serif;
         font-weight: 200;
+    }
+    .password-link {
+        font-size: 1rem;
     }
 }
 

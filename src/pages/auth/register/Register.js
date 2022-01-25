@@ -1,7 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { registerUser } from "../../../actions/authActions";
+import { uiActions } from "../../../store/ui-slice";
+import { useNavigate } from "react-router-dom";
 import "../Form.css";
 
 const Register = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { message, status, isLoading } = useSelector((state) => state.ui);
+
   const initialState = {
     username: "",
     email: "",
@@ -12,10 +20,36 @@ const Register = () => {
 
   const handleRegister = (e) => {
     e.preventDefault();
+    console.log(state);
+
+    dispatch(registerUser(state));
+
+    // Setting the form to NULL
+    setState((pre) => ({ ...pre, username: "", email: "", password: "" }));
+
+    setTimeout(() => {
+      console.log("Inside timeOut");
+      dispatch(
+        uiActions.showNotification({
+          message: "",
+        })
+      );
+    }, 5000);
+    // navigate("/activate-account");
   };
   return (
     <div className="form-center register">
-      <div className="form-msg"></div>
+      {message && (
+        <div
+          className={
+            status === "success"
+              ? "form-msg alert-success"
+              : "form-msg alert-danger"
+          }
+        >
+          {message}
+        </div>
+      )}
       <h2 className="form-title"> Regiter Yourself </h2>{" "}
       <form className=" form register-form" onSubmit={handleRegister}>
         <div className="form-control">
@@ -45,7 +79,7 @@ const Register = () => {
         <div className="form-control">
           <label htmlFor="password"> password </label>{" "}
           <input
-            type="text"
+            type="password"
             name="password"
             required
             value={state.password}
