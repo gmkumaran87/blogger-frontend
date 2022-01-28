@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import { logoutUser } from "../../actions/authActions";
+import { FiSearch } from "react-icons/fi";
 
 import "./Navbar.css";
 const Navbar = () => {
@@ -76,6 +77,18 @@ const Navbar = () => {
                 <a className="link" href="#" onClick={handleLogout}>
                   Logout
                 </a>
+              </li>
+              <li>
+                <NavLink className="link" to="/settings">
+                  <img
+                    src="https://images.pexels.com/photos/1858175/pexels-photo-1858175.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                    alt="User profile"
+                    className="user-pic"
+                  />
+                </NavLink>
+              </li>
+              <li>
+                <FiSearch />
               </li>
             </>
           )}

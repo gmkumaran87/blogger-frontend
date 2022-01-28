@@ -5,13 +5,14 @@ const authSlice = createSlice({
     initialState: {
         isLoggedIn: false,
         isNavBar: true,
+        user: {},
     },
     reducers: {
         login(state, action) {
             console.log("Updating login sate", action);
             state.isLoggedIn = true;
             state.isNavBar = false;
-            //state.user = action.payload.user;
+            state.user = action.payload.user;
         },
         logout(state, action) {
             console.log("Before updating logout");
