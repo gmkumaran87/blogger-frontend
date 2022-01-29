@@ -8,7 +8,6 @@ const uiSlice = createSlice({
             state.user = action.payload.user;
         },
         showNotification(state, action) {
-            console.log("Before update uiSlice");
             state.message = action.payload.message;
             state.status = action.payload.status;
             state.isLoading = action.payload.isLoading;

@@ -16,7 +16,6 @@ const Navbar = () => {
     }
   }, [isLoggedIn, navigate]);
 
-  console.log(isLoggedIn);
   const handleLogout = async (e) => {
     dispatch(logoutUser());
   };
@@ -94,7 +93,6 @@ const Navbar = () => {
           )}
           {!isLoggedIn && (
             <>
-              {" "}
               <li>
                 <NavLink className="link" to="/login">
                   Login

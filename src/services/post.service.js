@@ -2,8 +2,8 @@ import axios from "axios";
 
 const API_URL = "/api/v1/posts";
 
-const getAllPosts = async() => {
-    const result = await axios.get(`${API_URL}`);
+const getAllPosts = async(search) => {
+    const result = await axios.get(`${API_URL}${search}`);
     return result;
 };
 
@@ -20,4 +20,13 @@ const deletePost = async(id) => {
 };
 const updatePost = async(id, obj) =>
     await axios.patch(`${API_URL}/${id}`, obj);
-export { getAllPosts, createPost, deletePost, updatePost, getPost };
+
+const getCategories = async() => await axios.get("/api/v1/category");
+export {
+    getAllPosts,
+    createPost,
+    deletePost,
+    updatePost,
+    getPost,
+    getCategories,
+};

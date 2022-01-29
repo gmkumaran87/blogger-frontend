@@ -3,13 +3,15 @@ import Header from "../../components/header/Header";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Posts from "../posts/Posts";
 import "./Home.css";
+import { useLocation } from "react-router-dom";
 
 const Home = () => {
+  const { search } = useLocation();
   return (
     <>
       <Header />
       <div className="home">
-        <Posts />
+        <Posts search={search} />
         <Sidebar />
       </div>{" "}
     </>

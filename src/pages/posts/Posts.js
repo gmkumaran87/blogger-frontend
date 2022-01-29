@@ -1,34 +1,18 @@
 import React, { useEffect } from "react";
 import Post from "./Post";
 import "./Posts.css";
-import { getAllPosts } from "../../services/post.service";
-import { postAction } from "../../store/post-slice";
+import { allPosts } from "../../actions/postActions";
 
 import { useDispatch, useSelector } from "react-redux";
 
-const Posts = () => {
+const Posts = ({ search }) => {
   const dispatch = useDispatch();
   const { posts } = useSelector((state) => state.post);
 
-  // console.log("Posts", posts);
   // Getting all the Posts
   useEffect(() => {
-    const getPosts = async () => {
-      try {
-        const result = await getAllPosts();
-        console.log(result);
-        if (result.status === 200) {
-          dispatch(postAction.loadPosts(result.data));
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    getPosts();
-  }, [dispatch]);
-
-  console.log(posts);
+    dispatch(allPosts(search));
+  }, [dispatch, search]);
 
   const postsArray = posts.map((post) => {
     return (

@@ -8,6 +8,8 @@ import ForgotPass from "./pages/auth/forgot/ForgotPass";
 import Loading from "./pages/auth/Loading";
 import { useSelector, useDispatch } from "react-redux";
 import { authActions } from "./store/auth-slice";
+import SinglePost from "./pages/posts/SinglePost";
+import Write from "./pages/write/Write";
 
 function App() {
   const dispatch = useDispatch();
@@ -15,7 +17,7 @@ function App() {
 
   useEffect(() => {
     const userDetails = JSON.parse(localStorage.getItem("user"));
-    // console.log(userDetails);
+    console.log(userDetails);
     if (userDetails) {
       dispatch(authActions.login(userDetails));
     }
@@ -25,11 +27,13 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/:id" element={<SinglePost />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPass />} />
         <Route path="/activate-account/:activationCode" element={<Loading />} />
         <Route path="/loading" element={<Loading />} />
+        <Route path="/write" element={<Write />} />
       </Routes>
     </Router>
   );

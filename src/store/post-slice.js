@@ -2,11 +2,16 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const postSlice = createSlice({
     name: "post",
-    initialState: { posts: [], msg: null, singlePost: {} },
+    initialState: { posts: [], msg: null, singlePost: {}, categories: [] },
     reducers: {
         loadPosts(state, action) {
-            console.log(action);
             state.posts = action.payload;
+        },
+        loadSinglePost(state, action) {
+            state.singlePost = action.payload;
+        },
+        loadCategories(state, action) {
+            state.categories = action.payload;
         },
     },
 });

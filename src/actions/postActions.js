@@ -7,22 +7,17 @@ import {
     createPost,
     deletePost,
     updatePost,
+    getCategories,
 } from "../services/post.service";
 
-const allPosts = async() => {
-    console.log("Inside All post actions");
+const allPosts = (search) => {
     return async(dispatch) => {
         try {
-            console.log("Inside UserActions");
-            const result = await getAllPosts();
-            console.log(result);
-            dispatch(
-                postAction.loadPosts({
-                    posts: result.data,
-                })
-            );
+            const result = await getAllPosts(search);
+            if (result.status === 200) {
+                dispatch(postAction.loadPosts(result.data));
+            }
         } catch (error) {
-            console.log(error);
             dispatch(
                 uiActions.showNotification({
                     status: "error",
@@ -33,11 +28,14 @@ const allPosts = async() => {
     };
 };
 
-const singlePost = (id) => {
+const getSinglePost = (id) => {
     return async(dispatch) => {
         try {
             const result = await getPost(id);
             console.log(result);
+            if (result.status === 200) {
+                dispatch(postAction.loadSinglePost(result.data));
+            }
         } catch (error) {
             dispatch(
                 uiActions.showNotification({
@@ -72,17 +70,13 @@ const deleteSinglePost = (id) => {
         }
     };
 };
-/*const userAdd = (obj) => {
+
+const getAllCategories = () => {
     return async(dispatch) => {
         try {
-            const result = await addUser(obj);
+            const result = await getCategories();
             if (result.status === 200) {
-                dispatch(
-                    uiActions.showNotification({
-                        status: "success",
-                        message: "User added successfully",
-                    })
-                );
+                dispatch(postAction.loadCategories(result.data));
             }
         } catch (error) {
             dispatch(
@@ -93,5 +87,27 @@ const deleteSinglePost = (id) => {
             );
         }
     };
-};*/
-export { allPosts, deleteSinglePost, singlePost };
+};
+/*const userAdd = (obj) => {
+        return async(dispatch) => {
+            try {
+                const result = await addUser(obj);
+                if (result.status === 200) {
+                    dispatch(
+                        uiActions.showNotification({
+                            status: "success",
+                            message: "User added successfully",
+                        })
+                    );
+                }
+            } catch (error) {
+                dispatch(
+                    uiActions.showNotification({
+                        status: "error",
+                        message: "Something went wrong..",
+                    })
+                );
+            }
+        };
+    };*/
+export { allPosts, deleteSinglePost, getSinglePost, getAllCategories };
