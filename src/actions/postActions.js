@@ -5,7 +5,7 @@ import {
     getAllPosts,
     getPost,
     deletePost,
-    updatePost,
+    // updatePost,
     getCategories,
 } from "../services/post.service";
 
