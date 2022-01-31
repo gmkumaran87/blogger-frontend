@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "/api/v1/posts";
+const API_URL = "https://blogger-gmkumaran87.netlify.app/api/v1/posts";
 
 const getAllPosts = async(search) => {
     const result = await axios.get(`${API_URL}${search}`);
@@ -21,7 +21,8 @@ const deletePost = async(id) => {
 const updatePost = async(id, obj) =>
     await axios.patch(`${API_URL}/${id}`, obj);
 
-const getCategories = async() => await axios.get("/api/v1/category");
+const getCategories = async() =>
+    await axios.get("https://blogger-gmkumaran87.netlify.app/api/v1/category");
 
 const uploadImage = async(obj, config) =>
     await axios.post(`${API_URL}/image-upload`, obj, config);

@@ -74,6 +74,7 @@ const getAllCategories = () => {
     return async(dispatch) => {
         try {
             const result = await getCategories();
+            console.log("Get Categories", result);
             if (result.status === 200) {
                 dispatch(postAction.loadCategories(result.data));
             }
