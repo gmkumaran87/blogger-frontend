@@ -13,20 +13,21 @@ import Write from "./pages/write/Write";
 
 function App() {
   const dispatch = useDispatch();
-  const { user, isLoggedIn } = useSelector((state) => state.auth);
+  const { isLoggedIn } = useSelector((state) => state.auth);
 
+  console.log("isLoggedIn", isLoggedIn);
   useEffect(() => {
     const userDetails = JSON.parse(localStorage.getItem("user"));
     console.log(userDetails);
     if (userDetails) {
-      dispatch(authActions.login(userDetails));
+      dispatch(authActions.login(userDetails.user));
     }
   }, [dispatch]);
   return (
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        {isLoggedIn && <Route path="/" element={<Home />} />}
         <Route path="/:id" element={<SinglePost />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

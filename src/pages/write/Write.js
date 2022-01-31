@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { FiPlus } from "react-icons/fi";
+import { uploadImage, createPost } from "../../services/post.service";
 import "./Write.css";
+import { useNavigate } from "react-router-dom";
 
 const Write = () => {
+  const navigate = useNavigate();
   const initialState = {
     title: "",
     desc: "",
@@ -10,17 +13,41 @@ const Write = () => {
   };
 
   const [state, setState] = useState(initialState);
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    const post = {};
     e.preventDefault();
+
+    post["title"] = state.title;
+    post["description"] = state.desc;
+    post["categories"] = "Technology";
 
     console.log("File", state.file);
 
     if (state.file) {
-      const data = new FormData();
-      const filename = new Date.now() + state.file.name;
+      const formData = new FormData();
+      formData.append("myImage", state.file);
+      const config = {
+        headers: {
+          "content-type": "multipart/form-data",
+        },
+      };
 
-      data.append("file", state.file);
-      data.append("name", filename);
+      console.log("before upload", formData);
+      try {
+        const result = await uploadImage(formData, config);
+        console.log(result);
+        const imageUrl = result.data.imageUrl;
+        post["image"] = imageUrl;
+        try {
+          const res = await createPost(post);
+          console.log("Post result", res);
+          if (res.status === 201) {
+            navigate("/");
+          }
+        } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
   return (

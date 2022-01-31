@@ -7,8 +7,8 @@ const getAllPosts = async(search) => {
     return result;
 };
 
-const createPost = async() => {
-    return await axios.post(`${API_URL}`);
+const createPost = async(post) => {
+    return await axios.post(`${API_URL}`, post);
 };
 
 const getPost = async(id) => await axios.get(`${API_URL}/${id}`);
@@ -22,6 +22,9 @@ const updatePost = async(id, obj) =>
     await axios.patch(`${API_URL}/${id}`, obj);
 
 const getCategories = async() => await axios.get("/api/v1/category");
+
+const uploadImage = async(obj, config) =>
+    await axios.post(`${API_URL}/image-upload`, obj, config);
 export {
     getAllPosts,
     createPost,
@@ -29,4 +32,5 @@ export {
     updatePost,
     getPost,
     getCategories,
+    uploadImage,
 };

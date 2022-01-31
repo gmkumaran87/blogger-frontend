@@ -16,6 +16,7 @@ const SinglePost = () => {
     dispatch(getSinglePost(id));
   }, [dispatch, id]);
 
+  console.log("User", singlePost);
   return (
     <>
       <div className="home">

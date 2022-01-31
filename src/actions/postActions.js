@@ -4,7 +4,6 @@ import { postAction } from "../store/post-slice";
 import {
     getAllPosts,
     getPost,
-    createPost,
     deletePost,
     updatePost,
     getCategories,
@@ -88,6 +87,7 @@ const getAllCategories = () => {
         }
     };
 };
+
 /*const userAdd = (obj) => {
         return async(dispatch) => {
             try {
