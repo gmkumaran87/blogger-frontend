@@ -2,7 +2,7 @@ import axios from "axios";
 
 // const API_URL = "https://urlshortener-gmkumaran87.herokuapp.com/api/v1/auth";
 
-const API_URL = "https://blogger-gmkumaran87.netlify.app/api/v1/auth";
+const API_URL = "https://blogger-gmkumaran87.herokuapp.com/api/v1/auth";
 
 const register = async(obj) => {
     const result = await axios.post(`${API_URL}/register`, obj);
