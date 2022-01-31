@@ -8,6 +8,7 @@ const Sidebar = () => {
   const dispatch = useDispatch();
   const { categories } = useSelector((state) => state.post);
 
+  console.log("Categories", categories);
   // Getting all the Posts
   useEffect(() => {
     dispatch(getAllCategories());
