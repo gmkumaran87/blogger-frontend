@@ -11,10 +11,10 @@ const Navbar = () => {
   const { isLoggedIn } = useSelector((state) => state.auth);
 
   /*  useEffect(() => {
-          if (!isLoggedIn) {
-            navigate("/login");
-          }
-        }, [isLoggedIn, navigate]);*/
+            if (!isLoggedIn) {
+              navigate("/login");
+            }
+          }, [isLoggedIn, navigate]);*/
 
   const handleLogout = async (e) => {
     console.log("DIspatching LOGOUT");
@@ -74,7 +74,7 @@ const Navbar = () => {
           {isLoggedIn && (
             <>
               <li>
-                <NavLink className="link" onClick={handleLogout}>
+                <NavLink className="link" to="/login" onClick={handleLogout}>
                   Logout
                 </NavLink>
               </li>
