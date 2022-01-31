@@ -17,6 +17,7 @@ const Navbar = () => {
         }, [isLoggedIn, navigate]);*/
 
   const handleLogout = async (e) => {
+    console.log("DIspatching LOGOUT");
     dispatch(logoutUser());
   };
 
@@ -73,7 +74,7 @@ const Navbar = () => {
           {isLoggedIn && (
             <>
               <li>
-                <a className="link" href="/" onClick={handleLogout}>
+                <a className="link" href="#" onClick={handleLogout}>
                   Logout
                 </a>
               </li>

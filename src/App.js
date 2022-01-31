@@ -27,7 +27,7 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        {isLoggedIn && <Route path="/" element={<Home />} />}
+        <Route path="/" element={<Home />} />
         <Route path="/:id" element={<SinglePost />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

@@ -11,6 +11,7 @@ const register = async(obj) => {
 };
 
 const login = async(obj) => {
+    console.log("Before login", API_URL, obj);
     const result = await axios.post(`${API_URL}/login`, obj);
 
     if (result.status === 201) {

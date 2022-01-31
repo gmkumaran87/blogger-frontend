@@ -38,7 +38,7 @@ const loginUser = (obj) => {
     return async(dispatch) => {
         try {
             const result = await login(obj);
-
+            console.log("After login", result);
             if (result.status === 201) {
                 dispatch(
                     authActions.login({
