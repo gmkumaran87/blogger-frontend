@@ -77,6 +77,14 @@ nav {
     margin: 5px;
 }
 
+.logout-btn {
+    font-family: inherit;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: .4rem .8rem;
+}
+
 @keyframes navLinkFade {
     from {
         opacity: 0;

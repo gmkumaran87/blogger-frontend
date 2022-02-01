@@ -74,9 +74,10 @@ const Navbar = () => {
           {isLoggedIn && (
             <>
               <li>
-                <NavLink className="link" to="/login" onClick={handleLogout}>
+                <button className="link logout-btn" onClick={handleLogout}>
+                  {" "}
                   Logout
-                </NavLink>
+                </button>
               </li>
               <li>
                 <NavLink className="link" to="/settings">

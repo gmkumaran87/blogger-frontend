@@ -1,6 +1,6 @@
 import axios from "axios";
 
-// const API_URL = "https://urlshortener-gmkumaran87.herokuapp.com/api/v1/auth";
+// const API_URL = "http://localhost:5000/api/v1/auth";
 
 const API_URL = "https://blogger-gmkumaran87.herokuapp.com/api/v1/auth";
 
@@ -12,7 +12,8 @@ const register = async(obj) => {
 
 const login = async(obj) => {
     console.log("Before login", API_URL, obj);
-    const result = await axios.post(`${API_URL}/login`, obj);
+    const options = { withCredentials: true, credetials: "include" };
+    const result = await axios.post(`${API_URL}/login`, obj, options);
 
     if (result.status === 201) {
         console.log(result.data);

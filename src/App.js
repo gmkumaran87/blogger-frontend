@@ -29,10 +29,17 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/:id" element={<SinglePost />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/forgot-password" element={<ForgotPass />} />
-        <Route path="/activate-account/:activationCode" element={<Loading />} />
+        {!isLoggedIn && <Route path="/login" element={<Login />} />}
+        {!isLoggedIn && <Route path="/register" element={<Register />} />}
+        {!isLoggedIn && (
+          <Route path="/forgot-password" element={<ForgotPass />} />
+        )}
+        {!isLoggedIn && (
+          <Route
+            path="/activate-account/:activationCode"
+            element={<Loading />}
+          />
+        )}
         <Route path="/loading" element={<Loading />} />
         <Route path="/write" element={<Write />} />
       </Routes>

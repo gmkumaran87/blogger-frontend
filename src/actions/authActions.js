@@ -42,7 +42,7 @@ const loginUser = (obj) => {
             if (result.status === 201) {
                 dispatch(
                     authActions.login({
-                        isLoggedIn: true,
+                        isLoggedIn: !!result.data.token,
                         user: result.data,
                     })
                 );
