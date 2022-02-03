@@ -22,6 +22,7 @@ const Login = () => {
     // Clearing the message and status while starting of the app
     dispatch(uiActions.clearNotification());
     if (isLoggedIn) {
+      console.log("Before navigating in LOGIN");
       navigate("/");
     }
   }, [isLoggedIn, navigate, dispatch]);

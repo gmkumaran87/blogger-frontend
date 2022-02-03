@@ -5,6 +5,7 @@
     flex-flow: column;
     justify-content: center;
     max-width: 1044px;
+    gap: 2rem;
 }
 
 @media(min-width: 768px) {

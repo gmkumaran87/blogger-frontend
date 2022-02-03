@@ -11,6 +11,7 @@ const Posts = ({ search }) => {
 
   // Getting all the Posts
   useEffect(() => {
+    // console.log("Before dispatching Posts");
     dispatch(allPosts(search));
   }, [dispatch, search]);
 
@@ -28,7 +29,9 @@ const Posts = ({ search }) => {
       />
     );
   });
-  return <div className="posts">{postsArray}</div>;
+
+  // console.log("Posts", posts);
+  return <div className="posts"> {postsArray} </div>;
 };
 
 export default Posts;

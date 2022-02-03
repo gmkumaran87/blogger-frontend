@@ -7,12 +7,13 @@ import { useLocation } from "react-router-dom";
 
 const Home = () => {
   const { search } = useLocation();
+
+  // console.log("In HOME Component");
   return (
     <>
       <Header />
       <div className="home">
-        <Posts search={search} />
-        <Sidebar />
+        <Posts search={search} /> <Sidebar />
       </div>{" "}
     </>
   );

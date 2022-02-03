@@ -43,7 +43,7 @@ const loginUser = (obj) => {
                 dispatch(
                     authActions.login({
                         isLoggedIn: !!result.data.token,
-                        user: result.data,
+                        user: result.data.user,
                     })
                 );
                 dispatch(

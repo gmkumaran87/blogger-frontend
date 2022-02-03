@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Cookies } from "react-cookie";
 
 // const API_URL = "http://localhost:5000/api/v1/auth";
 
@@ -12,11 +13,21 @@ const register = async(obj) => {
 
 const login = async(obj) => {
     console.log("Before login", API_URL, obj);
-    const options = { withCredentials: true, credetials: "include" };
-    const result = await axios.post(`${API_URL}/login`, obj, options);
+    const oneDay = 1000 * 60 * 60 * 24; // One day in milli seconds
+
+    const options = {
+        expires: new Date(Date.now() + oneDay),
+        httpOnly: true,
+        // secure: true,
+        signed: true,
+    };
+    const result = await axios.post(`${API_URL}/login`, obj);
+
+    const cookies = new Cookies();
 
     if (result.status === 201) {
         console.log(result.data);
+        cookies.set("token", result.data.token, { path: "/" }, options);
         localStorage.setItem("user", JSON.stringify(result.data));
     }
     return result;

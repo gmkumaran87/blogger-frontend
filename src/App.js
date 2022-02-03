@@ -10,6 +10,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { authActions } from "./store/auth-slice";
 import SinglePost from "./pages/posts/SinglePost";
 import Write from "./pages/write/Write";
+import EditPost from "./pages/posts/EditPost";
 
 function App() {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ function App() {
     const userDetails = JSON.parse(localStorage.getItem("user"));
     console.log(userDetails);
     if (userDetails) {
-      dispatch(authActions.login(userDetails.user));
+      dispatch(authActions.login({ isLoggedIn: true, user: userDetails.user }));
     }
   }, [dispatch]);
   return (
@@ -28,8 +29,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/:id" element={<SinglePost />} />
-        {!isLoggedIn && <Route path="/login" element={<Login />} />}
+        <Route path="/post/:id" element={<SinglePost />} />
+        <Route path="/login" element={<Login />} />
         {!isLoggedIn && <Route path="/register" element={<Register />} />}
         {!isLoggedIn && (
           <Route path="/forgot-password" element={<ForgotPass />} />
@@ -42,6 +43,9 @@ function App() {
         )}
         <Route path="/loading" element={<Loading />} />
         <Route path="/write" element={<Write />} />
+        <Route path="/post/edit-post/:postId" element={<EditPost />}>
+          <Route path="" element={<Write />} />
+        </Route>
       </Routes>
     </Router>
   );

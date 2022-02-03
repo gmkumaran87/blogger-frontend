@@ -12,11 +12,13 @@ const SinglePost = () => {
   const { id } = params;
   const { singlePost } = useSelector((state) => state.post);
 
+  // console.log("Single Post ID", id);
   useEffect(() => {
+    console.log("Before dispatchin sigle post", id);
     dispatch(getSinglePost(id));
   }, [dispatch, id]);
 
-  console.log("User", singlePost);
+  // console.log("Single Post", singlePost);
   return (
     <>
       <div className="home">

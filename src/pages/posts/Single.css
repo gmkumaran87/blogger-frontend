@@ -12,10 +12,10 @@
 
 .post-title {
     text-align: center;
-    margin: 1.5rem 0;
+    margin: 1.2rem 0;
     color: #000;
     font-family: 'Varela Round', sans-serif;
-    font-size: 1.8rem;
+    font-size: 1.3rem;
 }
 
 .post-info {
@@ -28,14 +28,14 @@
 
 .author {
     margin-left: 5px;
-    font-size: 16px;
+    font-size: 14px;
     color: #be9656;
     font-family: "Varela Round", Arial, Helvetica, sans-serif;
 }
 
 .icons {
     margin-right: .74rem;
-    font-size: 1.3rem;
+    font-size: 1rem;
 }
 
 .edit-icon {
@@ -49,11 +49,27 @@
 .single-postDesc {
     margin-top: 1rem;
     color: #666;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .single-postDesc::first-letter {
     margin-left: 1rem;
     font-size: 2rem;
     font-weight: 600;
+}
+
+@media(min-width: 768px) {
+    .single-postDesc {
+        font-size: 20px;
+    }
+    .author {
+        margin-left: 5px;
+        font-size: 16px;
+        color: #be9656;
+        font-family: "Varela Round", Arial, Helvetica, sans-serif;
+    }
+    .icons {
+        margin-right: .74rem;
+        font-size: 1.4rem;
+    }
 }

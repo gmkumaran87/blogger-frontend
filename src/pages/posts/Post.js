@@ -24,7 +24,7 @@ const Post = (props) => {
         })}
       </div>
       <p className="post-title">
-        <Link className="link" to={`/${id}`}>
+        <Link className="link" to={`/post/${id}`}>
           {title}
         </Link>
       </p>

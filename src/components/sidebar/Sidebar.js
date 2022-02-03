@@ -3,18 +3,17 @@ import "./Sidebar.css";
 import { getAllCategories } from "../../actions/postActions";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { FiFacebook, FiTwitter, FiLinkedin } from "react-icons/fi";
 
 const Sidebar = () => {
   const dispatch = useDispatch();
   const { categories } = useSelector((state) => state.post);
 
-  console.log("Categories", categories);
   // Getting all the Posts
   useEffect(() => {
     dispatch(getAllCategories());
   }, [dispatch]);
 
-  // console.log("categories", categories);
   return (
     <div className="sidebar">
       <div className="sidebar-item">
@@ -45,8 +44,15 @@ const Sidebar = () => {
       <div className="sidebar-item">
         <p className="sidebar-title"> follow us </p>
         <ul className="cat-lists">
-          <li> life </li> <li> Technology </li> <li> sports </li>
-          <li> science </li>
+          <li>
+            <FiFacebook className="icons social-icon" />
+          </li>
+          <li>
+            <FiTwitter className="icons social-icon" />
+          </li>
+          <li>
+            <FiLinkedin className="icons social-icon"> </FiLinkedin>
+          </li>
         </ul>
       </div>
     </div>
